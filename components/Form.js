@@ -40,6 +40,27 @@ export default function Form() {
       w={{ base: "90%", sm: "100%" }}
       p={{ base: 5, sm: 8, md: 10 }}>
       <FormControl py={{ base: 1, sm: 5, md: 8 }}>
+        <RadioGroup defaultValue="professional">
+          <HStack spacing={{ base: 0, sm: "10px" }}>
+            {formData.radio.map((el, idx) => (
+              <Radio
+                key={idx}
+                value={el.value}
+                borderWidth="3px"
+                borderColor={colorMode === "light" ? "lightGrey" : "lightBlack"}
+                bg={colorMode === "light" ? "lightGrey" : "lightBlack"}
+                px={{ base: 0 }}
+                py={3}
+                _checked={{
+                  bg: "purple",
+                }}>
+                <Heading fontSize={{ base: "md", lg: "lg", xl: "2xl" }}>
+                  {el.value}
+                </Heading>
+              </Radio>
+            ))}
+          </HStack>
+        </RadioGroup>
         <Grid
           templateColumns="repeat(2, 1fr)"
           templateRows="repeat(6, auto)"
@@ -51,42 +72,20 @@ export default function Form() {
               color: "grey",
             },
           }}>
-          {formData.form.map(el =>
-            el.type === "radio" ? (
-              <RadioGroup defaultValue="professional">
-                <HStack spacing={{ base: 0, sm: "10px" }}>
-                  <Radio
-                    value={el.value}
-                    borderWidth="3px"
-                    borderColor={
-                      colorMode === "light" ? "lightGrey" : "lightBlack"
-                    }
-                    bg={colorMode === "light" ? "lightGrey" : "lightBlack"}
-                    px={{ base: 0 }}
-                    py={3}
-                    _checked={{
-                      bg: "purple",
-                    }}>
-                    <Heading fontSize={{ base: "md", lg: "lg", xl: "2xl" }}>
-                      {el.value}
-                    </Heading>
-                  </Radio>
-                </HStack>
-              </RadioGroup>
-            ) : (
-              <GridItem
-                colSpan={
-                  el.type === "textArea" ? { base: 2 } : { base: 2, sm: 1 }
-                }>
-                <FormControl isRequired py={{ base: 0, xl: 5 }}>
-                  <FormLabel fontSize={{ sm: "sm", lg: "lg", xlg: "xl" }}>
-                    {el.label}
-                  </FormLabel>
-                  {el.type === "textArea" ? <Textarea /> : <Input />}
-                </FormControl>
-              </GridItem>
-            ),
-          )}
+          {formData.input.map((el, idx) => (
+            <GridItem
+              key={idx}
+              colSpan={
+                el.type === "textArea" ? { base: 2 } : { base: 2, sm: 1 }
+              }>
+              <FormControl isRequired py={{ base: 0, xl: 5 }}>
+                <FormLabel fontSize={{ sm: "sm", lg: "lg", xlg: "xl" }}>
+                  {el.label}
+                </FormLabel>
+                {el.type === "textArea" ? <Textarea /> : <Input />}
+              </FormControl>
+            </GridItem>
+          ))}
         </Grid>
       </FormControl>
 

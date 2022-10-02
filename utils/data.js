@@ -24,15 +24,15 @@ export const listData = {
 }
 
 export const formData = {
-  form: [
+  radio: [
     {
-      type: "radio",
       value: "Professional",
     },
     {
-      type: "radio",
       value: "Student",
     },
+  ],
+  input: [
     {
       type: "input",
       label: "First Name",
