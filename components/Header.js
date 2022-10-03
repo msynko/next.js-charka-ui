@@ -21,21 +21,23 @@ export default function Header() {
       <Heading
         fontSize={{ base: "md", sm: "xl", md: "2xl", xl: "4xl" }}
         lineHeight={{ base: "none" }}>
-        {headerData.subHeader}
+        {headerData.subHeaderOne}
       </Heading>
-
+      <Heading
+        fontSize={{ base: "md", sm: "xl", md: "2xl", xl: "4xl" }}
+        lineHeight={{ base: "none" }}>
+        {headerData.subHeaderTwo}
+      </Heading>
       <List spacing={6} color="#7E8489" py={{ base: "15px" }}>
-        {listData.list.map(list => (
-          <>
-            <Flex alignItems="flex-start" m={0}>
-              <ListIcon as={VscCircleFilled} color="#7A76FF" mt="5px" />
-              <ListItem
-                fontSize={{ base: "sm", sm: "md", xl: "xl" }}
-                lineHeight={{ base: "shorter" }}>
-                <Text>{list.content}</Text>
-              </ListItem>
-            </Flex>
-          </>
+        {listData.list.map((list, idx) => (
+          <Flex key={idx} alignItems="flex-start" m={0}>
+            <ListIcon as={VscCircleFilled} color="#7A76FF" mt="5px" />
+            <ListItem
+              fontSize={{ base: "sm", sm: "md", xl: "xl" }}
+              lineHeight={{ base: "shorter" }}>
+              <Text>{list.content}</Text>
+            </ListItem>
+          </Flex>
         ))}
       </List>
     </Container>

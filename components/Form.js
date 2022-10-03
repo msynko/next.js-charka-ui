@@ -44,12 +44,13 @@ export default function Form() {
           <HStack spacing={{ base: 0, sm: "10px" }}>
             {formData.radio.map((el, idx) => (
               <Radio
+                defaultChecked={idx === 1 ? true : false}
                 key={idx}
                 value={el.value}
                 borderWidth="3px"
                 borderColor={colorMode === "light" ? "lightGrey" : "lightBlack"}
                 bg={colorMode === "light" ? "lightGrey" : "lightBlack"}
-                px={{ base: 0 }}
+                px={idx === 1 ? { base: 2 } : { base: 0 }}
                 py={3}
                 _checked={{
                   bg: "purple",
@@ -82,7 +83,11 @@ export default function Form() {
                 <FormLabel fontSize={{ sm: "sm", lg: "lg", xlg: "xl" }}>
                   {el.label}
                 </FormLabel>
-                {el.type === "textArea" ? <Textarea /> : <Input />}
+                {el.type === "textArea" ? (
+                  <Textarea />
+                ) : (
+                  <Input type={el.type} />
+                )}
               </FormControl>
             </GridItem>
           ))}

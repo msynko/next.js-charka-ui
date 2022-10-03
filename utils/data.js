@@ -1,7 +1,7 @@
 export const headerData = {
   header: "See Dash in action.",
-  subHeader:
-    "Thank you for your interest in Dash Enterprise. We'll be in touch soon to schedule a demo.",
+  subHeaderOne: "Thank you for your interest in Dash Enterprise.",
+  subHeaderTwo: "We'll be in touch soon to schedule a demo.",
 }
 export const listData = {
   list: [
@@ -34,27 +34,27 @@ export const formData = {
   ],
   input: [
     {
-      type: "input",
+      type: "text",
       label: "First Name",
     },
     {
-      type: "input",
+      type: "text",
       label: "Last Name",
     },
     {
-      type: "input",
+      type: "email",
       label: "Business Email",
     },
     {
-      type: "input",
+      type: "tel",
       label: "Phone",
     },
     {
-      type: "input",
+      type: "text",
       label: "Company name",
     },
     {
-      type: "input",
+      type: "text",
       label: "Title",
     },
     {
